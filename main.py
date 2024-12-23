@@ -1,48 +1,42 @@
+from flask import Flask, request, jsonify
 from phi.agent import Agent
+<<<<<<< HEAD
 
+=======
+>>>>>>> e833498 (feat: add flask)
 import os
 from datetime import datetime, timedelta
 from phi.agent import RunResponse
 from phi.utils.pprint import pprint_run_response
 from model import model
 from dotenv import load_dotenv
+from flask_cors import CORS
 load_dotenv()
 
 from agents import perplexity_agent
-
 from agents.portfolio_analysis_agent import portfolio_analysis
 
-while True:
-    user_input = input("You: ")
-    
-    # Exit condition
-    if user_input.lower() in ['exit', 'quit', 'bye']:
-        print("Goodbye!")
-        break
+app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
+@app.route('/ask', methods=['POST'])
+def ask():
+    data = request.json
+    user_input = data.get('message')
     
-        # Get portfolio analysis response
+    if not user_input:
+        return jsonify({'error': 'No message provided'}), 400
+
+    # Get portfolio analysis response
     portfolio_analysis_response = portfolio_analysis(user_input)
 
     # Generate response from the perplexity agent
     response = perplexity_agent.perplexity_agent(user_input, portfolio_analysis_response)
 
-    print("Agent:", response)
+    return jsonify({'response': response})
 
-  
-
-
-
-
-# #from typing import Iterator
-
-# # Run agent and return the response as a stream
-# response_stream: Iterator[RunResponse] = agent.run("Your prompt here", stream=True)
-
-# # Process the stream as needed
-# for chunk in response_stream:
-#     # Do something with each chunk
-#     print(chunk.content)
+if __name__ == '__main__':
+    app.run(debug=True)
 
 
 
