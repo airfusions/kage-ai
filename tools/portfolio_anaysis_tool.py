@@ -15,13 +15,15 @@ class PortfolioTools(Toolkit):
             "city": "Exampleville",
             "crypto_portfolio": {
                 "tokens": [
-                    {"symbol": "BTC", "amount": 0.5, "value_usd": 30000},
-                    {"symbol": "ETH", "amount": 3.0, "value_usd": 5000},
-                    {"symbol": "ADA", "amount": 1000, "value_usd": 500},
                      {"symbol": "SOL", "amount": 100, "value_usd": 1500},
-                     {"symbol": "DOGE", "amount": 10000, "value_usd": 900}
+                     {"symbol": "DOGE", "amount": 10000, "value_usd": 900},
+                    {"symbol": "SAMO", "amount": 5000, "value_usd": 250},
+                    {"symbol": "COPE", "amount": 2000, "value_usd": 100},
+                    {"symbol": "FIDA", "amount": 1500, "value_usd": 300},
+                    {"symbol": "KIN", "amount": 100000, "value_usd": 50},
+                    {"symbol": "STEP", "amount": 800, "value_usd": 200}
                 ],
-                "total_value_usd": 37900,
+                "total_value_usd": 3300,
             },
             "hobbies": ["coding", "reading", "hiking"],
         }

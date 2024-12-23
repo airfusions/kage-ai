@@ -1,9 +1,5 @@
 from flask import Flask, request, jsonify
 from phi.agent import Agent
-<<<<<<< HEAD
-
-=======
->>>>>>> e833498 (feat: add flask)
 import os
 from datetime import datetime, timedelta
 from phi.agent import RunResponse
