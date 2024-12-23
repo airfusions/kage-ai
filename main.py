@@ -8,7 +8,9 @@ from model import model
 from dotenv import load_dotenv
 load_dotenv()
 
-from agents import perplexity_agent, portfolio_analysis_agent
+from agents import perplexity_agent
+
+from agents.portfolio_analysis_agent import portfolio_analysis
 
 while True:
     user_input = input("You: ")
@@ -18,18 +20,16 @@ while True:
         print("Goodbye!")
         break
 
-    try:
+    
         # Get portfolio analysis response
-        portfolio_analysis_response = portfolio_analysis_agent.portfolio_analysis(user_input)
+    portfolio_analysis_response = portfolio_analysis(user_input)
 
-        # Generate response from the perplexity agent
-        response = perplexity_agent(user_input, portfolio_analysis_response)
+    # Generate response from the perplexity agent
+    response = perplexity_agent.perplexity_agent(user_input, portfolio_analysis_response)
 
-        print("Agent:", response)
+    print("Agent:", response)
 
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
+  
 
 
 
