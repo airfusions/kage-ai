@@ -14,8 +14,16 @@ from agents import perplexity_agent
 from agents.portfolio_analysis_agent import portfolio_analysis
 
 from helper.sst_voice_mode import sst_voice_mode
+#from flask_cors import CORS
 
 
+# app = Flask(__name__)
+# CORS(app) 
+
+
+#@app.route('/ask', methods=['POST'])
+
+#def ask():
 
 while True:
 
@@ -52,8 +60,8 @@ while True:
 
 
 
-
-
+# if __name__ == '__main__':
+#     app.run(debug=True)
   
 
 
