@@ -13,7 +13,8 @@ api_key = os.getenv('ELEVEN_API_KEY')
 # Function to play the audio
 def voice_mode(text_input):
     # Initialize ElevenLabs client
-    client = ElevenLabs(api_key)
+    #client = ElevenLabs(api_key)
+    client = ElevenLabs()
     
     
     # Generate the audio as a stream
