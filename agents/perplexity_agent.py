@@ -3,10 +3,12 @@ from dotenv import load_dotenv
 from phi.agent import Agent, RunResponse
 from tools.perplexity_tool import PerplexitySearch
 from model import model
+import os
 
 load_dotenv()
+api_key = os.getenv("PERPLEXITY_API_KEY")
+perplexity_tool = PerplexitySearch(api_key)
 
-perplexity_tool = PerplexitySearch(api_key="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")
 
 def perplexity_agent(user_input, portfolio_data=""):  # Fixed spelling
     agent = Agent(
